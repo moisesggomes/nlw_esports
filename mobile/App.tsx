@@ -26,7 +26,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      { !fontsLoade ? <Home /> : <Loading /> }
+      { fontsLoade ? <Home /> : <Loading /> }
     </Background>
   );
 }
