@@ -27,7 +27,7 @@ export function Home() {
   useEffect(() => {
     fetch("http://10.0.0.106:3333")
       .then(response => response.json())
-      .then(data => setGames(data))
+      .then(data => console.log(data))
   }, [])
 
   return (
