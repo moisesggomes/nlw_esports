@@ -10,6 +10,7 @@ import { Background } from "../../components/Background"
 import { GameCard, GameCardProps } from "../../components/GameCard"
 
 import { styles } from "./styles"
+import { HOST, PORT } from "../../utils/host"
 
 export function Home() {
   const [games, setGames] = useState<GameCardProps[]>([])
@@ -21,7 +22,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetch("http://10.0.0.106:3333/games")
+    fetch(`http://${HOST}:${PORT}/games`)
       .then(response => response.json())
       .then(data => setGames(data))
   }, [])

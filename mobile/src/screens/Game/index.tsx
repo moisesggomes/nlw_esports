@@ -8,6 +8,7 @@ import logoImg from "../../assets/logo-nlw-esports.png"
 
 import { THEME } from "../../theme"
 import { styles } from "./styles"
+import { HOST, PORT } from "../../utils/host"
 
 import { GameParams } from "../../@types/navigation"
 
@@ -29,13 +30,13 @@ export function Game() {
     }
 
     async function getDiscordUser(adsId: string) {
-        fetch(`http://10.0.0.106:3333/ads/${adsId}/discord`)
+        fetch(`http://${HOST}:${PORT}/ads/${adsId}/discord`)
             .then(response => response.json())
             .then(data => setDiscordDuoSelected(data.discord))
     }
 
     useEffect(() => {
-        fetch(`http://10.0.0.106:3333/games/${game.id}/ads`)
+        fetch(`http://${HOST}:${PORT}/games/${game.id}/ads`)
             .then(response => response.json())
             .then(data => setDuos(data))
     }, [])
